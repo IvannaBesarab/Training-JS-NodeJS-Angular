@@ -14,6 +14,4 @@ Calculator.minPlus({key: document.querySelector('#minPlus')})
 
 Calculator.float({key: document.querySelector('#float')});
 
-// Calculator.clear({key: document.querySelector('#clear')});
-
 Calculator.clearAll({key: document.querySelector('#clearAll')});

@@ -1,10 +1,11 @@
 var Calculator = (function(){
 	var args = [];
-	var current = '';
-	var text = '';
-	var result = document.querySelector('.result');
-	var input = document.querySelector('#text');
-	// Returning public values 
+	var current = ''; //current number
+	var text = '';  // concat all math expression
+	var result = document.querySelector('.result'); //show the result of expression
+	var input = document.querySelector('#text'); // show all math expression
+
+	// Returning public methods
 	return{
 		divide: divide,
 		multiply: multiply,
@@ -14,14 +15,12 @@ var Calculator = (function(){
 		calculate: calculate,
 		minPlus: minPlus,
 		float: float,
-		clear: clear, 
 		clearAll: clearAll
 	}
 
-
 	function pressKey(param){
 		var key = param.key;
-		if(key.length > 1){			
+		if(key.length > 1){
 			for ( var i = 0; i < key.length; i++) {
 				key[i].addEventListener('click', function(e){
 					text += e.target.innerText;
@@ -29,7 +28,7 @@ var Calculator = (function(){
 					current += e.target.innerText;
 				})
 			}
-		}		
+		}
 	}
 
 	function addToArguments(operant){
@@ -38,16 +37,16 @@ var Calculator = (function(){
 					args.push(current, operant);
 				}else{
 					var lastElem = args[args.length-1];
-					if(lastElem === ' / ' 
-						|| lastElem === ' * ' 
-						|| lastElem === ' + ' 
+					if(lastElem === ' / '
+						|| lastElem === ' * '
+						|| lastElem === ' + '
 						|| lastElem === ' - '){
 						args[args.length-1] = operant;
 					}else{
 						args.push(operant);
-					}					
+					}
 				}
-				
+
 			}else{
 				return;
 			}
@@ -59,7 +58,7 @@ var Calculator = (function(){
 	function divide(param){
 		var key = param.key;
 		key.addEventListener('click', function(e){
-			addToArguments(' / ');			
+			addToArguments(' / ');
 		});
 
 	}
@@ -76,7 +75,7 @@ var Calculator = (function(){
 		var key = param.key;
 
 		key.addEventListener('click', function(e){
-			addToArguments(' + ');			
+			addToArguments(' + ');
 		})
 	}
 
@@ -90,9 +89,8 @@ var Calculator = (function(){
 	function minPlus(param){
 		var key = param.key;
 		key.addEventListener('click', function(e){
-			
-			if(args.length){	
-				current = -current;	
+			if(args.length){
+				current = -current;
 				if(current){
 					args[args.length] = current;
 				}else{
@@ -100,8 +98,7 @@ var Calculator = (function(){
 						return;
 					}
 					args[args.length-1] = -(args[args.length-1]);
-				}		
-								
+				}
 			}else{
 				current = -current;
 				if(current){
@@ -122,22 +119,6 @@ var Calculator = (function(){
 				text += '.';
 				displayOperants(text);
 			}
-			
-		});
-	}
-
-	function clear(param){
-		var key = param.key;
-		key.addEventListener('click', function(e){
-			if(args.length && !Number(args[args.length-1])){
-				args = args.slice(0, args.length-1);
-				text = args.join(' ');
-			}else{
-				text = text.slice(0, text.length-1);			
-				current = current.slice(0, current.length-1);
-			}
-			
-			displayOperants(text);
 		});
 	}
 
@@ -149,7 +130,6 @@ var Calculator = (function(){
 			args = [];
 			displayOperants(0);
 		});
-		
 	}
 
 	function calculate(param){
@@ -158,22 +138,19 @@ var Calculator = (function(){
 			args.push(current);
 			var calculatedResult = eval(args.join(' '));
 			args = [];
-
-			// var calculatedResult = eval(current);
 			text = '';
 			current = '';
 			result.innerText  = calculatedResult;
 			input.value = 0;
-		})		
+		})
 	}
 
 	function displayOperants(text){
 		var input = document.querySelector('#text');
 		if(Array.isArray(text)){
-			input.value = text.join(' ');	
+			input.value = text.join(' ');
 		}else{
-			input.value = text;	
-		}		
-	}	
+			input.value = text;
+		}
+	}
 })();
-
