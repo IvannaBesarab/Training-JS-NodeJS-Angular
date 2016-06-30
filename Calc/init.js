@@ -1,1 +1,0 @@
-Calculator.pressButton({key:document.querySelectorAll('.button')});
