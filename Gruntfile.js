@@ -1,23 +1,28 @@
 module.exports = function(grunt){
 	grunt.loadNpmTasks('grunt-contrib-less');
 	grunt.loadNpmTasks('grunt-contrib-watch');
-	grunt.loadNpmTasks('grunt-serve');
+	grunt.loadNpmTasks('grunt-contrib-connect');
 
 	grunt.initConfig({
 		less:{
-			files:{
-					'angularCalc/css/styles.css':'less/styles.less'
-				}
+			development: {
+			    files: {
+			      'angularCalc/css/styles.css':'angularCalc/less/styles.less'
+			    }
+			}
 		},
-		serve: {
-			options: {
-				port: 9000
-			},
-			path:'angularCalc/'
+		connect: {
+		    server: {
+		      options: {
+				livereload: true,
+      			base: 'angularCalc/',
+		        port: 8000
+		      }
+		    }
 		},
 		watch:{
 			css:{
-				files:'angularCalc/less/*.less',
+				files:'angularCalc/less/styles.less',
 				tasks:['less'],
 				options:{
 					livereload: true
@@ -29,10 +34,24 @@ module.exports = function(grunt){
 					livereload: true,
 					event: 'all'
 				}
-			}
+			},
+			livereload: {
+                // Browser live reloading
+                // https://github.com/gruntjs/grunt-contrib-watch#live-reloading
+                options: {
+                    livereload: true
+                },
+                files: [
+                    'angularCalc/*'
+                ]
+            }
 		}
 	})
 
-	grunt.registerTask('default', ['less','serve']);
-	grunt.registerTask('watch', ['watch']);
+	grunt.registerTask('default', [
+		'less',
+		'connect:server',
+		'watch']);
+	grunt.registerTask('w', ['watch']);
+	grunt.registerTask('s', ['less']);
 };

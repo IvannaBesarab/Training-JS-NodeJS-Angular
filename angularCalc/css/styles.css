@@ -1,0 +1,6 @@
+.calc-container {
+  width: 300px;
+}
+.calc-container table tr td:hover {
+  background: #dcdcdc;
+}
