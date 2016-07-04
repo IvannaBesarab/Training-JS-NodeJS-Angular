@@ -1,6 +1,6 @@
 Calculator.pressKey({key: document.querySelectorAll('.number')});
 
-//Calculator.add({key: document.querySelector('#add')});
+Calculator.add({key: document.querySelector('#add')});
 
 Calculator.subtract({key: document.querySelector('#subtract')});
 

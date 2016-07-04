@@ -162,7 +162,8 @@ var Calculator = (function(){
 			current = '';
 			result.innerText  = calculatedResult;
 			input.value = 0;
-		})		
+		});
+				
 	}
 
 	function calculateString(string){

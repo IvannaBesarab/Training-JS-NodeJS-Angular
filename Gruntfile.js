@@ -6,25 +6,25 @@ module.exports = function(grunt){
 	grunt.initConfig({
 		less:{
 			files:{
-					'calculator/css/styles.css':'less/styles.less'
+					'angularCalc/css/styles.css':'less/styles.less'
 				}
 		},
 		serve: {
 			options: {
 				port: 9000
 			},
-			path:'calculator/'
+			path:'angularCalc/'
 		},
 		watch:{
 			css:{
-				files:'calculator/less/*.less',
+				files:'angularCalc/less/*.less',
 				tasks:['less'],
 				options:{
 					livereload: true
 				}
 			},
 			scripts:{
-				files:'calculator/js/*.js',
+				files:'angularCalc/js/*.js',
 				options:{
 					livereload: true,
 					event: 'all'
