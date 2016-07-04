@@ -36,30 +36,29 @@
 		}
 
 		function calculate(){
-			current = Number.parseFloat(current);
-			switch (operant){
-				case '+':
+			if(current){
+				current = Number.parseFloat(current);
+
+				if(operant === '+'){
 					cl.result = memory + current;
-					current = '';
-					cl.typedExpression = '';
-				break;
-				case '-':
+				}
+				if(operant === '-'){
 					cl.result = memory - current;
-					current = '';
-					cl.typedExpression = '';
-				break;
-				case '/':
-					cl.result = memory / current;
-					current = '';
-					cl.typedExpression = '';
-				break;
-				case '*':
+				}
+				if(operant === '*'){
 					cl.result = memory * current;
-					current = '';
-					cl.typedExpression = '';
-				break;
+				}
+				if(operant === '/'){
+					cl.result = memory / current;
+				}
 			}
 
+			cleanVariables();
+		}
+
+		function cleanVariables(){
+			current = '';
+			cl.typedExpression = '';
 		}
 	}
 
