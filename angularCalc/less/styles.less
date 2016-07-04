@@ -1,5 +1,20 @@
 .calc-container{
     width: 300px;
+    background: #f6f4f4;
+    padding: 20px;
+
+    .input{
+      display: flex;
+      margin-bottom: 20px;
+
+      input{
+        width: 75%;
+      }
+      button{
+        width: 20%;
+        margin-left: 5px;
+      }
+    }
 
     table{
         tr{
@@ -8,6 +23,17 @@
                     background:#dcdcdc;
                 }
             }
+            &.active{
+              td{
+                background: #fff;
+                &:hover{
+                  background:#dcdcdc;
+                }
+              }
+            }
         }
     }
+}
+.jumbotron{
+  background: #fff;
 }

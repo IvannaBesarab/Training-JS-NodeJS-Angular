@@ -1,6 +1,28 @@
 .calc-container {
   width: 300px;
+  background: #f6f4f4;
+  padding: 20px;
+}
+.calc-container .input {
+  display: flex;
+  margin-bottom: 20px;
+}
+.calc-container .input input {
+  width: 75%;
+}
+.calc-container .input button {
+  width: 20%;
+  margin-left: 5px;
 }
 .calc-container table tr td:hover {
   background: #dcdcdc;
+}
+.calc-container table tr.active td {
+  background: #fff;
+}
+.calc-container table tr.active td:hover {
+  background: #dcdcdc;
+}
+.jumbotron {
+  background: #fff;
 }

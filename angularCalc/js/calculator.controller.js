@@ -3,11 +3,13 @@
 
 	angular
 		.module('calculatorApp')
+		.value('numbers', [ [1, 2, 3],[4, 5, 6], [7, 8, 9], [0]] )
+		.value('operants', [['+', '-'], ['/', '*']] )
 		.controller('CalculatorController', CalculatorController)
 
-	CalculatorController.$inject = [];
+	CalculatorController.$inject = ['numbers', 'operants'];
 
-	function CalculatorController(){
+	function CalculatorController(numbers, operants){
 		var cl = this;
 		var current = '';
 		var memory = 0;
@@ -17,8 +19,8 @@
 		cl.pressKey = pressKey;
 		cl.pressOperant = pressOperant;
 		cl.calculate = calculate;
-		cl.numbers = [ [1, 2, 3],[4, 5, 6], [7, 8, 9], [0]];
-		cl.operants = [['+', '-'], ['/', '*']];
+		cl.numbers = numbers;
+		cl.operants = operants;
 
 
 		function pressKey(key){

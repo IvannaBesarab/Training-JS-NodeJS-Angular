@@ -3,8 +3,10 @@
 		<div>
 			{{cl.result}}
 		</div>
-		<input type="text" ng-model="cl.typedExpression"/>
-
+		<div class="input">
+			<input type="text" ng-model="cl.typedExpression" class="form-control"/>
+			<button type="button" name="button" class="btn" ng-click="cl.calculate()"> = </button>
+		</div>
 		<table class="table">
 			<tbody>
 
@@ -19,7 +21,6 @@
 					</td>
 				</tr>
 			</tbody>
-			<button type="button" name="button" class="btn" ng-click="cl.calculate()"> = </button>
 		</table>
 	</div>
  </div>
