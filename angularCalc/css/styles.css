@@ -14,6 +14,9 @@
   width: 20%;
   margin-left: 5px;
 }
+.calc-container table tr td {
+  cursor: pointer;
+}
 .calc-container table tr td:hover {
   background: #dcdcdc;
 }
