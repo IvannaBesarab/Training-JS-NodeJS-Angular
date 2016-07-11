@@ -10,6 +10,8 @@
 	function CalcuatorDirective(){
 		return {
 			restrict: 'E',
+			
+			replace: true,
 			controller: 'CalculatorController',
 			controllerAs: 'cl',
 			templateUrl: 'templates/calculator.template.html'

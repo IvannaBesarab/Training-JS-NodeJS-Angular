@@ -7,18 +7,16 @@
 			<input type="text" ng-model="cl.typedExpression" class="form-control"/>
 			<button type="button" name="button" class="btn" ng-click="cl.calculate()"> = </button>
 		</div>
+
 		<table class="table">
 			<tbody>
 
 				<tr ng-repeat="numberRow in cl.numbers track by $index">
-					<td ng-repeat="number in numberRow track by $index" ng-click="cl.pressKey(number)">
-						{{number}}
-					</td>
+					<td calc-option options="numberRow" callback="cl.pressKey(value)"></td>
+					
 				</tr>
 				<tr class="active" ng-repeat="operant in cl.operants track by $index" >
-					<td ng-repeat="oper in operant track by $index" ng-click="cl.pressOperant(oper)">
-						{{oper}}
-					</td>
+					<td calc-option options="operant" callback="cl.pressOperant(value)"></td>
 				</tr>
 			</tbody>
 		</table>

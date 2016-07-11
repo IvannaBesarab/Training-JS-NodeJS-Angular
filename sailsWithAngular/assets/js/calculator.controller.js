@@ -26,12 +26,14 @@
 
 
 		function pressKey(key){
+			alert(key);
 			console.log(key)
 			cl.typedExpression += key;
 			current += key;
 		}
 
 		function pressOperant(key){
+			alert(key);
 			console.log(key)
 			cl.typedExpression += key;
 			operant = key;
